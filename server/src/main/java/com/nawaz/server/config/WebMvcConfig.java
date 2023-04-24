@@ -30,27 +30,4 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .maxAge(3600);
 
     }    
-    
-    
-    
-//    configure
-    
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http
-//                .csrf()
-//                .disable()
-//                .cors()
-//                .disable()
-//                .authorizeRequests()
-//                .antMatchers("/token").permitAll()
-//                .antMatchers(HttpMethod.OPTIONS).permitAll()
-//                .anyRequest().authenticated()
-//                .and()
-//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-//                .and()
-//                .exceptionHandling().authenticationEntryPoint(entryPoint);
-//
-//        http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-//
-//    }
 }

@@ -109,14 +109,11 @@ public class UserControllerImpl {
 	
 	@PostMapping("/login")
 	public ResponseEntity<Map<String, String>> loginUser(
-//			@RequestPart String username_email,
-//			@RequestPart String password
+
 			@RequestBody Map<String, String> loginCreds
 	) {
 
-//			Map<String, String> loginCreds = new HashMap<>();
-//			loginCreds.put("username_email", username_email);
-//			loginCreds.put("password", password);
+
 			
 			System.out.println(loginCreds);
 			
