@@ -1,0 +1,21 @@
+cloud:
+  aws:
+    credentials:
+      access-key: DO00TU4RYDNLLKLG3DBG 
+      secret-key: RA339jp/nsY0LfpTRnzIDt+mF6JVDPhZhgbxaeJqYRM 
+    region:
+      static: ap-southeast-1
+    stack:
+      auto: false
+
+application:
+  bucket:
+    name: kk74mybucket
+    
+web:
+  cors:
+    allowed-origins: "http://localhost:4200"
+    allowed-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD
+    max-age: 3600
+    allowed-headers: "Requestor-Type"
+    exposed-headers: "X-Get-Header"
