@@ -98,15 +98,7 @@ public class UserControllerImpl {
 		return res;
 	}
 	
-	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> deleteUser(@PathVariable("id") int id) {
-		String res = userService.delete(id);
-		System.out.println("res : "+res);
-		
-		ResponseEntity<String> responseEntity = new ResponseEntity<>(res, HttpStatus.CREATED);
-		
-		return responseEntity;
-	}
+	
 	
 	@PostMapping("/login")
 	public ResponseEntity<Map<String, String>> loginUser(
