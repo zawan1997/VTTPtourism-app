@@ -1,4 +1,4 @@
-package com.nawaz.server.entity;
+package com.nawaz.server.models;
 
 public class EmailDetails {
     // Class data members

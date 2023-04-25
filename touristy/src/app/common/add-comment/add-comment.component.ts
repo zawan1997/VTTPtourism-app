@@ -35,7 +35,7 @@ export class AddCommentComponent {
 
       //Reading the image file. takes result as string and put into base64
       const reader = new FileReader();
-      if (file.size / 1024 > 50) {
+      if (file.size / 200 * 1024) {
         this.snackbarService.openSnackbar('File too big! only 50kb or less size file allowed', 'error');
         return ;
       }

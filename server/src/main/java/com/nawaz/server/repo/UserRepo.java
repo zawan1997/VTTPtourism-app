@@ -18,7 +18,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
-import com.nawaz.server.entity.EmailDetails;
+import com.nawaz.server.models.EmailDetails;
 import com.nawaz.server.models.User;
 import com.nawaz.server.models.UserMapper;
 import com.nawaz.server.services.EmailService;
@@ -102,7 +102,7 @@ public class UserRepo {
 				passwordEncoder.encode(user.getPassword()), 
 				user.getId()) > 0;
 	}
-
+	
 	public boolean verifyUserEmail(String email,String verificationCode) {
 		return jdbcTemplate.update(SQL_UPDATE_USER_VERIFY_EMAIL, email, 
 				verificationCode) > 0;
@@ -113,6 +113,7 @@ public class UserRepo {
 		try {
 			String emailVerificationCode = randomAlphanumericString(50);
 			System.out.println(emailVerificationCode);
+			//user creation
 			response = jdbcTemplate.update(SQL_INSERT_USER, user.getName(), user.getEmailId(), 
 					user.getUsername(),
 					passwordEncoder.encode(user.getPassword()), emailVerificationCode) > 0 ? 
@@ -142,10 +143,8 @@ public class UserRepo {
 	@SuppressWarnings("deprecation")
 	public User loginUser(Map<String, String> userLoginMap) {
 		try {
-//			User returnedUser = jdbcTemplate.queryForObject(SQL_FIND_LOGIN_USER, 
-//					new Object[] { user.getUsername() }, 
-//					new UserMapper());			
-			
+
+			//gets user by username or email and check pasword to verify
 			List<User> userList = jdbcTemplate.query("select users.id,users.name,"
 					+ "users.profile_picture,"
 					+ "users.username,users.email_id,users.password from users "
@@ -195,7 +194,7 @@ public class UserRepo {
 		return jdbcTemplate.update(SQL_UPDATE_USER_PROFILE_PIC, userId, profilePicName) > 0;
 	}
 
-
+//creating a long string to put in the email link
 	public static String randomAlphanumericString(int length) {
 		String alphanumericCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuv";
 		StringBuffer randomString = new StringBuffer(length);

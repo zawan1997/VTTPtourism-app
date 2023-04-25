@@ -29,19 +29,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 )
 public class ServerApplication {
 
-//	@Bean
-//    public org.springframework.web.cors.CorsConfigurationSource corsConfigurationSource() {
-//        CorsConfiguration configuration = new CorsConfiguration();
-//        configuration.setAllowedOrigins(Arrays.asList("*"));
-//        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
-////        configuration.setAllowedHeaders("*");
-//        configuration.setAllowedHeaders(Arrays.asList("*"));
-//        configuration.setExposedHeaders(Arrays.asList("*"));
-//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-//        source.registerCorsConfiguration("/api/v1/**", configuration);
-//        return source;
-//    }
-
 
 	public static void main(String[] args) {
 		SpringApplication.run(ServerApplication.class, args);

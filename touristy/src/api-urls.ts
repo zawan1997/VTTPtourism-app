@@ -13,4 +13,5 @@ export const API_URLS =  {
     GET_USER_IMAGE: (userId: number) => `file/downloadByUserId/${userId}`,
     UPDATE_PROFILE: 'users/update',
     UPDATE_PASSWORD: 'users/updatePassword'
+    
 }

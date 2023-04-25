@@ -11,6 +11,7 @@ import { StorageService } from 'src/app/services/storage.service';
 export class LocationCardComponent {
   @Input() locationData: any;
 
+  //from details page from second API
   constructor(
     private api: ApiService,
     private storageService: StorageService

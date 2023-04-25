@@ -30,14 +30,14 @@ import com.nawaz.server.services.UserService;
 @RequestMapping("users")
 public class UserControllerImpl {
 	@Autowired
-	UserService userServiceImpl;	
+	UserService userService;	
 	
 	@Autowired
 	JwtGenerator jwtGenerator;
 	
 	@PostMapping("/create")
 	public ResponseEntity<User> createUser(@RequestBody User userReq) {		
-		User res = userServiceImpl.create(userReq);
+		User res = userService.create(userReq);
 		System.out.println("res : "+res);
 		
 		ResponseEntity<User> responseEntity = new ResponseEntity<>(res, HttpStatus.CREATED);
@@ -48,7 +48,7 @@ public class UserControllerImpl {
 	
 	@PutMapping("/update")
 	public ResponseEntity<User> updateUser(@RequestBody User userReq) {		
-		User res = userServiceImpl.update(userReq);
+		User res = userService.update(userReq);
 		System.out.println("res : "+res);
 		
 		ResponseEntity<User> responseEntity = new ResponseEntity<>(res, HttpStatus.CREATED);
@@ -58,7 +58,7 @@ public class UserControllerImpl {
 	
 	@PutMapping("/updatePassword")	
 	public ResponseEntity<User> updateUserPassword(@RequestBody User userReq) {		
-		User res = userServiceImpl.updatePassword(userReq);
+		User res = userService.updatePassword(userReq);
 		System.out.println("res : "+res);
 		
 		ResponseEntity<User> responseEntity = new ResponseEntity<>(res, HttpStatus.CREATED);
@@ -68,7 +68,7 @@ public class UserControllerImpl {
 	
 	@GetMapping({""})
 	public ResponseEntity<List<User>> getAllUsers() {
-		List<User> res = userServiceImpl.get();
+		List<User> res = userService.get();
 		System.out.println("res : "+res);
 		
 		ResponseEntity<List<User>> responseEntity = new ResponseEntity<>(res, HttpStatus.ACCEPTED);
@@ -80,7 +80,7 @@ public class UserControllerImpl {
 	public ResponseEntity<User> getUser(@PathVariable(name="id",required=true) int id) {
 		System.out.println("id : "+id);
 
-		User res = userServiceImpl.get(id);
+		User res = userService.get(id);
 		System.out.println("res : "+res);
 		
 		ResponseEntity<User> responseEntity = new ResponseEntity<>(res, HttpStatus.ACCEPTED);
@@ -88,10 +88,11 @@ public class UserControllerImpl {
 		return responseEntity;
 	}
 
+	//landing after clicking the link then sent to verify email with the registered email 
 	@GetMapping("/verifyEmail/{email}/{verificationCode}")
 	public boolean verifyEmail(@PathVariable(name="email",required=true) String email,
 			@PathVariable(name="verificationCode",required=true) String verificationCode) {		
-		boolean res = userServiceImpl.verifyEmail(email, verificationCode);
+		boolean res = userService.verifyEmail(email, verificationCode);
 		System.out.println("res : "+res);
 		
 		return res;
@@ -99,7 +100,7 @@ public class UserControllerImpl {
 	
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deleteUser(@PathVariable("id") int id) {
-		String res = userServiceImpl.delete(id);
+		String res = userService.delete(id);
 		System.out.println("res : "+res);
 		
 		ResponseEntity<String> responseEntity = new ResponseEntity<>(res, HttpStatus.CREATED);
@@ -117,7 +118,7 @@ public class UserControllerImpl {
 			
 			System.out.println(loginCreds);
 			
-			User res = userServiceImpl.loginUser(loginCreds);
+			User res = userService.loginUser(loginCreds);
 			
 			Map<String, String> sampleRes = new HashMap<>();
 			sampleRes.put("Response", "Wrong Credentials");
