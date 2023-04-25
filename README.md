@@ -2,8 +2,6 @@
 
 Login Details:
 
-Username: touristytester@outlook.com
+Please create a brand new account using your email
 
-pasword: 1234qwer
-
-Please search for the zoo and click on Singapore zoo as well as Wild Wild Wet for the best experience
+Search for the zoo and click on Singapore zoo as well as Wild Wild Wet for the best experience. Thank you!
