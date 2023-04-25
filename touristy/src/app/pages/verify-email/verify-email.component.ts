@@ -32,7 +32,8 @@ export class VerifyEmailComponent implements OnInit {
     })
   }
 
-  //Confrima
+  //Confrimation
+  //limited amount of calls 
   verifyToken() {
     const url = API_URLS.EMAIL_VERIFY(this.email, this.token);
     this.apiService.get(url).subscribe((response: any)=> {

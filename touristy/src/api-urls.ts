@@ -1,4 +1,5 @@
 export const API_URLS =  {
+    //constant page to access the queries
     LOGIN: 'users/login',
     SIGNUP: 'users/create',
     EMAIL_VERIFY: (email: string, verificationCode: string): string => `users/verifyEmail/${email}/${verificationCode}`,
@@ -13,5 +14,5 @@ export const API_URLS =  {
     GET_USER_IMAGE: (userId: number) => `file/downloadByUserId/${userId}`,
     UPDATE_PROFILE: 'users/update',
     UPDATE_PASSWORD: 'users/updatePassword'
-    
+
 }
